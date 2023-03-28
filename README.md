@@ -1,4 +1,4 @@
-# DATABASES: EXERCISE FOR TEST-DRIVING A REPOSITORY CLASS
+# DATABASES: TEST-DRIVING A REPOSITORY CLASS EXERCISE
 
 ----
 
@@ -24,7 +24,7 @@ For this exercise, I will be creating a Music Library project that will use a "M
 
 ----
 
-## SEQUENCE DIAGRAM FOR MUSIC_LIBRARY PROJECT
+## Sequence diagram for Music Library Project
 
 ```mermaid
 sequenceDiagram
@@ -57,3 +57,10 @@ sequenceDiagram
 | Method |      Job        | Arguments |   SQL query it executes   |     Returns    |
 | ------ | --------------- | --------- | ------------------------- | -------------- |
 |  all   | gets all albums |   none    | `SELECT ... FROM albums;` | Array of album |
+
+## How to run it and print out the list of albums in the terminal:
+
+```bash
+# in the music-library directory:
+$ ruby app.rb
+```
