@@ -8,10 +8,10 @@
 >
 >To achieve this, you will learn how to build two kind of classes — they're regular Ruby classes, but designed to achieve a specific purpose in our program:
 >
-> * A Model class is used to hold a record's data.
+> * A **Model class** is used to hold a record's data.
 >For example, if we have a table students, we'd have a class Student, with attributes for each column. A single object holds the data for a specific student record. This class usually doesn't contain >any logic, but is only used to hold data.
 >
-> * A Repository class implements methods to run SQL queries on the database to retrieve, create, update or delete data.
+> * A **Repository class** implements methods to run SQL queries on the database to retrieve, create, update or delete data.
 >For example, if we have one table students, we'd have a class StudentRepository containing methods that communicates with the database using SQL.
 
 ----
@@ -54,6 +54,6 @@ sequenceDiagram
 
 ## Designing a repository class for selecting records from the database
 
-| Method |      Job        | Arguments |  SQL query it executes   |     Returns    |
-| ------ | --------------- | --------- | ------------------------ | -------------- |
-|  all   | gets all albums |   none    | `SELECT ... FROM albums; | Array of album |
+| Method |      Job        | Arguments |   SQL query it executes   |     Returns    |
+| ------ | --------------- | --------- | ------------------------- | -------------- |
+|  all   | gets all albums |   none    | `SELECT ... FROM albums;` | Array of album |
