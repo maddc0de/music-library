@@ -22,6 +22,7 @@ To learn how to test-drive "Model" and "Repository" classes to `SELECT` records 
 
 For this exercise, I will be creating a Music Library project that will use a "Model" and "Repository" classes.
 
+----
 
 ## Sequence diagram for Music Library Project
 
@@ -51,12 +52,15 @@ sequenceDiagram
     app->>t: Prints list of albums to terminal
 ```
 
+----
+
 ## Designing a repository class for selecting records from the database
 
 | Method |      Job        | Arguments |   SQL query it executes   |     Returns    |
 | ------ | --------------- | --------- | ------------------------- | -------------- |
 |  all   | gets all albums |   none    | `SELECT ... FROM albums;` | Array of album |
 
+----
 
 ## How to run it and print out the list of albums in the terminal:
 
