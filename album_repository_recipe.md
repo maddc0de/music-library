@@ -77,14 +77,10 @@ Define the attributes of your Model class. You can usually map the table columns
 # (in lib/album.rb)
 
 class Album
-
-  # Replace the attributes by your own columns.
   attr_accessor :id, :title, :release_year, :artist_id
 end
 
 ```
-
-*You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
 
 ## 5. Define the Repository Class interface
 
@@ -132,11 +128,6 @@ albums[0].id # =>  1
 albums[0].title # =>  'The Game' 
 albums[0].release_year # =>  '1980'  
 albums[0].artist_id # => '1'
-albums[1].id # =>  2 
-albums[1].title # =>  'The Works' 
-albums[1].release_year # =>  '1984'
-albums[1].artist_id # => '1'
-
 ```
 
 Encode this example as a test.
@@ -154,7 +145,7 @@ This is so you get a fresh table contents every time you run the test suite.
 
 def reset_students_table
   seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname:  albums' })
+  connection = PG.connect({ host: '127.0.0.1', dbname:  'albums' })
   connection.exec(seed_sql)
 end
 
