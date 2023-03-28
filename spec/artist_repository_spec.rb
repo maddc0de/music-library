@@ -1,4 +1,4 @@
-require 'artist_repository'
+require_relative '../lib/artist_repository'
 
 RSpec.describe ArtistRepository do
 
