@@ -22,20 +22,11 @@ Your tests will depend on data stored in PostgreSQL to run.
 If seed data is provided (or you already created it), you can skip this step.
 
 ```sql
--- EXAMPLE
--- (file: spec/seeds_{table_name}.sql)
+TRUNCATE TABLE artists RESTART IDENTITY;
+TRUNCATE TABLE albums RESTART IDENTITY;
 
--- Write your SQL seed here. 
 
--- First, you'd need to truncate the table - this is so our table is emptied between each test run,
--- so we can start with a fresh state.
--- (RESTART IDENTITY resets the primary key)
-
-TRUNCATE TABLE albums RESTART IDENTITY; -- replace with your own table name.
-
--- Below this line there should only be `INSERT` statements.
--- Replace these statements with your own seed title
-
+INSERT INTO artists (name, genre) VALUES ('Queen', 'Rock');
 INSERT INTO albums (title, release_year, artist_id) VALUES ('The Game', '1980', '1');
 INSERT INTO albums (title, release_year, artist_id) VALUES ('The Works', '1984', '1');
 ```
@@ -43,7 +34,7 @@ INSERT INTO albums (title, release_year, artist_id) VALUES ('The Works', '1984',
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
+psql -h 127.0.0.1 music_library_test < seeds_albums.sql
 ```
 
 ## 3. Define the class names
@@ -106,6 +97,16 @@ class AlbumRepository
     # Returns an array of Album objects.
   end
 
+  # selecting one record
+  # one argument
+  def find(id) # a number
+    # Executes the SQL query:
+    # SELECT title, release_year, artist_id FROM albums WHERE id = $1;
+
+    # Returns one record
+  end
+
+
 end
 ```
 
@@ -128,6 +129,28 @@ albums[0].id # =>  1
 albums[0].title # =>  'The Game' 
 albums[0].release_year # =>  '1980'  
 albums[0].artist_id # => '1'
+```
+
+```ruby
+# 2
+# Get one album
+repo = AlbumRepository.new
+album = repo.find(1)
+
+album.title # => 'The Game`
+album.release_year # => '1980'
+album.artist_id # => '1'
+```
+
+```ruby
+# 3
+# Get another album
+repo = AlbumRepository.new
+album = repo.find(2)
+
+album.title # => 'The Works`
+album.release_year # => '1984'
+album.artist_id # => '1'
 ```
 
 Encode this example as a test.

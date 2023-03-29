@@ -99,7 +99,7 @@ class ArtistsRepository
   # given the id in argument(number)
   def find(id)
     # Executes the sql query:
-    # SELECT id, name, genre FROM artists WHERE id = $1
+    # SELECT id, name, genre FROM artists WHERE id = $1;
 
     # returns a single Artist object
   end
