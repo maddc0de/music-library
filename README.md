@@ -19,9 +19,10 @@
 ## Objective
 
 To learn how to test-drive "Model" and "Repository" classes to `SELECT` records from the database.
+To learn how to test-drive a "Repository" class to `SELECT` a single record from the database: test-driving "find` method.
+
 
 For this exercise, I will be creating a Music Library project that will use a "Model" and "Repository" classes.
-
 ----
 
 ## Sequence diagram for Music Library Project
@@ -56,9 +57,10 @@ sequenceDiagram
 
 ## Designing a repository class for selecting records from the database
 
-| Method |      Job        | Arguments |   SQL query it executes   |     Returns    |
-| ------ | --------------- | --------- | ------------------------- | -------------- |
-|  all   | gets all albums |   none    | `SELECT ... FROM albums;` | Array of album |
+| Method | Job                 | Arguments   | SQL query it executes                   | Returns        |
+| ------ | ------------------- | ----------- | --------------------------------------- | -------------- |
+| all    | gets all albums     | none        | `SELECT ... FROM albums;`               | Array of album |
+| find   | get one album by id | `id` number | `SELECT... FROM albums WWHERE id = ..;` | A single album |
 
 ----
 

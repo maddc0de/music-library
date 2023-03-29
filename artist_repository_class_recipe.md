@@ -90,9 +90,18 @@ class ArtistsRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, title, release_year, artist_id FROM albums;
+    # SELECT id, name, genre FROM artists;
 
-    # Returns an array of Album objects.
+    # Returns an array of Artist objects.
+  end
+
+  # Selecting a single record
+  # given the id in argument(number)
+  def find(id)
+    # Executes the sql query:
+    # SELECT id, name, genre FROM artists WHERE id = $1
+
+    # returns a single Artist object
   end
 
 end
@@ -117,18 +126,22 @@ artists.length # => 2
 artists.first.id # => '1'
 artists.first.name # => 'Queen'
 
-# # 2
-# # Get a single student
+# 2
+# Get a single artist
 
-# repo = StudentRepository.new
+repo = ArtistRepository.new
 
-# student = repo.find(1)
+artist = repo.find(1)
+artist.name # =>  'Queen'
+artist.genre # =>  'Rock'
 
-# student.id # =>  1
-# student.name # =>  'David'
-# student.cohort_name # =>  'April 2022'
+# 3
+# Get another single artist
+repo = ArtistRepository.new
 
-# # Add more examples for each method
+artist = repo.find(2)
+artist.name # =>  'Michael Jackson'
+artist.genre # =>  'Pop'
 ```
 
 Encode this example as a test.

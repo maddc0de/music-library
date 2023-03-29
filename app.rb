@@ -9,10 +9,14 @@ artist_repository = ArtistRepository.new
 album_repository = AlbumRepository.new
 
 # # Print out each record from the result set .
-artist_repository.all.each do |artist|
-  p artist
-end
+# artist_repository.all.each do |artist|
+#   p artist
+# end
 
-album_repository.all.each do |album|
-  p album
-end
+# album_repository.all.each do |album|
+#   p album
+# end
+
+
+artist = artist_repository.find(1)
+puts artist.name
