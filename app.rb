@@ -22,6 +22,8 @@ album_repository = AlbumRepository.new
 # puts artist.name
 
 
-album = album_repository.find(1)
-puts album.title
+album = album_repository.find(3)
 
+puts album.id
+puts album.title
+puts album.release_year

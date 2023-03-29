@@ -27,7 +27,8 @@ RSpec.describe AlbumRepository do
   it "returns The Game album" do
     repo = AlbumRepository.new
     album = repo.find(1)
-  
+
+    expect(album.id).to eq(1)
     expect(album.title).to eq('The Game')
     expect(album.release_year).to eq('1980') 
     expect(album.artist_id).to eq('1')
