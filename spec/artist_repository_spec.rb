@@ -42,4 +42,42 @@ RSpec.describe ArtistRepository do
     expect(artist.genre).to eq('Pop')
     
   end
+
+  it 'creates a new artist' do
+    repo = ArtistRepository.new
+
+    new_artist = Artist.new
+    new_artist.name = 'Beatles'
+    new_artist.genre = 'Pop'
+
+    repo.create(new_artist)
+
+    artists = repo.all
+    last_artist = artists.last
+
+    expect(last_artist.name).to eq('Beatles')
+    expect(last_artist.genre).to eq('Pop')
+  end
+
+  it 'deletes the artist with id 1' do
+    repo = ArtistRepository.new
+
+    id_to_delete = 1
+    repo.delete(id_to_delete)
+    
+    artists = repo.all
+    expect(artists.length).to eq(1)
+    expect(artists.first.id).to eq('2')
+  end
+
+  it 'deletes the two artists' do
+    repo = ArtistRepository.new
+
+    repo.delete(1)
+    repo.delete(2)
+    
+    artists = repo.all
+    expect(artists.length).to eq(0)
+  end
+
 end

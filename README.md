@@ -18,8 +18,9 @@
 
 ## Objective
 
-To learn how to test-drive "Model" and "Repository" classes to `SELECT` records from the database.
-To learn how to test-drive a "Repository" class to `SELECT` a single record from the database: test-driving "find` method.
+* To learn how to test-drive "Model" and "Repository" classes to `SELECT` records from the database.
+* To learn how to test-drive a "Repository" class to `SELECT` a single record from the database: test-driving "find` method.
+* To learn how to test-drive a "Repository" class to `INSERT` a new record.
 
 
 For this exercise, I will be creating a Music Library project that will use a "Model" and "Repository" classes.
@@ -57,10 +58,11 @@ sequenceDiagram
 
 ## Designing a repository class for selecting records from the database
 
-| Method | Job                 | Arguments   | SQL query it executes                   | Returns        |
-| ------ | ------------------- | ----------- | --------------------------------------- | -------------- |
-| all    | gets all albums     | none        | `SELECT ... FROM albums;`               | Array of album |
-| find   | get one album by id | `id` number | `SELECT... FROM albums WWHERE id = ..;` | A single album |
+| Method | Job                 | Arguments      | SQL query it executes                                                     | Returns        |
+| ------ | ------------------- | -------------- | ------------------------------------------------------------------------- | -------------- |
+| all    | gets all albums     | none           | `SELECT ... FROM albums;`                                                 | Array of album |
+| find   | get one album by id | `id` number    | `SELECT... FROM albums WWHERE id = ..;`                                   | A single album |
+| create | insert an album     | `Album` object | `INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);` | 
 
 ----
 

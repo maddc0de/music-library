@@ -13,17 +13,22 @@ album_repository = AlbumRepository.new
 #   p artist
 # end
 
-# album_repository.all.each do |album|
+# album_repository.all.each do |album|§
 #   p album
 # end
 
 
+# prints one artist
 # artist = artist_repository.find(1)
 # puts artist.name
 
 
+# prints one album
 album = album_repository.find(3)
 
 puts album.id
 puts album.title
 puts album.release_year
+
+
+# INSERT INTO artists...
