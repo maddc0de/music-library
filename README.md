@@ -54,7 +54,7 @@ sequenceDiagram
 
 ----
 
-## Designing a repository class for selecting records from the database
+## Designing a repository class for selecting, inserting, deleteting and updating records from the database
 
 | Method | Job                   | Arguments      | SQL query it executes                                                            | Returns        |
 | ------ | --------------------- | -------------- | -------------------------------------------------------------------------        | -------------- |
