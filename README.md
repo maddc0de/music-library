@@ -21,9 +21,7 @@
 * To learn how to test-drive "Model" and "Repository" classes to `SELECT` records from the database.
 * To learn how to test-drive a "Repository" class to `SELECT` a single record from the database: test-driving "find` method.
 * To learn how to test-drive a "Repository" class to `INSERT` a new record.
-
-
-For this exercise, I will be creating a Music Library project that will use a "Model" and "Repository" classes.
+* For this exercise, I will be creating a Music Library project that will use a "Model" and "Repository" classes.
 ----
 
 ## Sequence diagram for Music Library Project
