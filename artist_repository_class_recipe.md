@@ -172,7 +172,7 @@ artist.name # =>  'Michael Jackson'
 artist.genre # =>  'Pop'
 
 # 4
-# deletes an artist
+# creates a new artist
 repo = ArtistRepository.new
 
 artist = Artist.new
@@ -187,7 +187,7 @@ new_artist.name #=> 'Beatles'
 new_artist.genre #=> 'Pop'
 
 # 5
-# create a new artist
+# deletes an existing artist
 repo = ArtistRepository.new
 
 id_to_delete = 1

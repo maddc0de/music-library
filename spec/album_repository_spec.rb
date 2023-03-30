@@ -69,4 +69,26 @@ RSpec.describe AlbumRepository do
     #   )
     # )
   end
+
+  it "deletes an album" do
+    repo = AlbumRepository.new
+
+    id_to_delete = 1
+
+    repo.delete(id_to_delete)
+
+    all_albums = repo.all
+    expect(all_albums.length).to eq(1)
+  end
+
+  it "deletes two albums" do
+    repo = AlbumRepository.new
+
+    repo.delete(1)
+    repo.delete(2)
+
+    all_albums = repo.all
+    expect(all_albums.length).to eq(0)
+  end
+
 end

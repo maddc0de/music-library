@@ -58,12 +58,13 @@ sequenceDiagram
 
 ## Designing a repository class for selecting records from the database
 
-| Method | Job                 | Arguments      | SQL query it executes                                                     | Returns        |
-| ------ | ------------------- | -------------- | ------------------------------------------------------------------------- | -------------- |
-| all    | gets all albums     | none           | `SELECT ... FROM albums;`                                                 | Array of album |
-| find   | get one album by id | `id` number    | `SELECT... FROM albums WWHERE id = ..;`                                   | A single album |
-| create | insert an album     | `Album` object | `INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);` | 
-
+| Method | Job                   | Arguments      | SQL query it executes                                                            | Returns        |
+| ------ | --------------------- | -------------- | -------------------------------------------------------------------------        | -------------- |
+| all    | gets all albums       | none           | `SELECT ... FROM albums;`                                                        | Array of album |
+| find   | get one album by id   | `id` number    | `SELECT... FROM albums WWHERE id = ..;`                                          | A single album |
+| create | insert an album       | `Album` object | `INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);`       | nil
+| delete | delete an album by id | `id` number    | `DELETE FROM albums WHERE id = $1;`                                              | nil
+| update | updates an album      | `Album` number | `UPDATE albums SET title = $1, release_year = $2, artist_id = $3 WHERE id = $4;` |
 ----
 
 ## How to run it and print out the list of albums in the terminal:

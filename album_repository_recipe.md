@@ -161,9 +161,7 @@ album = repo.find(1)
 album.title # => 'The Game`
 album.release_year # => '1980'
 album.artist_id # => '1'
-```
 
-```ruby
 # 3
 # Get another album
 repo = AlbumRepository.new
@@ -172,7 +170,9 @@ album = repo.find(2)
 album.title # => 'The Works`
 album.release_year # => '1984'
 album.artist_id # => '1'
+```
 
+```ruby
 # 4
 # insert a new album
 repo = AlbumRepository.new
@@ -187,7 +187,28 @@ repo.create(new_album)
 all_albums = repo.all
 all_albums.length #=> 3
 all_albums.last.title #=> 'A Night at the Opera'
+```
 
+```ruby
+# 5
+# deletes an existing album
+repo = AlbumRepository.new
+
+id_to_delete = 1
+repo.find(id_to_delete)
+
+all_albums = repo.all
+all_albums.length #=> 1
+
+# 5
+# deletes two existing album
+repo = AlbumRepository.new
+
+repo.find(1)
+repo.find(2)
+
+all_albums = repo.all
+all_albums.length #=> 0
 ```
 
 Encode this example as a test.
