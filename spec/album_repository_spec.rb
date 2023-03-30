@@ -59,13 +59,14 @@ RSpec.describe AlbumRepository do
     expect(all_albums.length).to eq(3)
     expect(all_albums.last.title).to eq('A Night at the Opera')
     expect(all_albums.last.release_year).to eq(1975)
+    expect(all_albums.last.artist_id).to eq(1)
 
-    expect(all_albums).to include(
-      have_attributes(
-        title: new_album.title,
-        release_year: 1975,
-        artist_id: 1
-      )
-    )
+    # expect(all_albums).to include(
+    #   have_attributes(
+    #     title: new_album.title,
+    #     release_year: 1975,
+    #     artist_id: 1
+    #   )
+    # )
   end
 end
