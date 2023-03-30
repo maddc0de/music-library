@@ -80,4 +80,33 @@ RSpec.describe ArtistRepository do
     expect(artists.length).to eq(0)
   end
 
+  it 'updates an existing artist with new values' do
+    repo = ArtistRepository.new
+
+    artist = repo.find(1)
+
+    artist.name = 'different name'
+    artist.genre = 'Bachata'
+
+    repo.update(artist)
+
+    updated_artist = repo.find(1)
+    expect(updated_artist.name).to eq('different name')
+    expect(updated_artist.genre).to eq('Bachata')
+  end
+
+  it 'updates the artist with a new name only' do
+    repo = ArtistRepository.new
+
+    artist = repo.find(1)
+
+    artist.name = 'different name'
+
+    repo.update(artist)
+
+    updated_artist = repo.find(1)
+    expect(updated_artist.name).to eq('different name')
+    expect(updated_artist.genre).to eq('Rock')
+  end
+
 end
