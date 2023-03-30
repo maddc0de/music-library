@@ -107,7 +107,7 @@ class ArtistsRepository
 
   # Insert a new artist record
   # takes an Artist objects in argument
-  def create(new_artist)
+  def create(artist)
     # Executes the sql query:
     # INSERT INTO artists (name, genre) VALUES ($1, $2);
 

@@ -69,6 +69,4 @@ class ArtistRepository
     nil
   end
 
-
-
 end

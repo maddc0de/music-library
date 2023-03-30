@@ -16,11 +16,11 @@ RSpec.describe AlbumRepository do
     repo = AlbumRepository.new
 
     albums = repo.all
-    expect(albums.length).to eq(2) # =>  2
-    expect(albums[0].id).to eq('1') # =>  1 
+    expect(albums.length).to eq(2)
+    expect(albums[0].id).to eq(1)
     expect(albums[0].title).to eq('The Game')
-    expect(albums[0].release_year).to eq('1980') 
-    expect(albums[0].artist_id).to eq('1')
+    expect(albums[0].release_year).to eq(1980) 
+    expect(albums[0].artist_id).to eq(1)
 
   end
 
@@ -30,8 +30,8 @@ RSpec.describe AlbumRepository do
 
     expect(album.id).to eq(1)
     expect(album.title).to eq('The Game')
-    expect(album.release_year).to eq('1980') 
-    expect(album.artist_id).to eq('1')
+    expect(album.release_year).to eq(1980) 
+    expect(album.artist_id).to eq(1)
 
   end
 
@@ -40,8 +40,32 @@ RSpec.describe AlbumRepository do
     album = repo.find(2)
   
     expect(album.title).to eq('The Works')
-    expect(album.release_year).to eq('1984') 
-    expect(album.artist_id).to eq('1')
+    expect(album.release_year).to eq(1984) 
+    expect(album.artist_id).to eq(1)
 
+  end
+
+  it 'creates a new album' do
+    repo = AlbumRepository.new
+
+    new_album = Album.new
+    new_album.title = 'A Night at the Opera'
+    new_album.release_year = 1975
+    new_album.artist_id = 1
+
+    repo.create(new_album)
+
+    all_albums = repo.all
+    expect(all_albums.length).to eq(3)
+    expect(all_albums.last.title).to eq('A Night at the Opera')
+    expect(all_albums.last.release_year).to eq(1975)
+
+    expect(all_albums).to include(
+      have_attributes(
+        title: new_album.title,
+        release_year: 1975,
+        artist_id: 1
+      )
+    )
   end
 end

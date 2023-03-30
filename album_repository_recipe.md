@@ -106,6 +106,27 @@ class AlbumRepository
     # Returns one record
   end
 
+  def create(album)  # album abject as an argument
+    # Executes the sql query:
+    # INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);
+
+    # returns nothing (only creates the record)
+  end
+
+   def delete(id)
+    # Executes the sql query:
+    # DELETE FROM albums WHERE id = $1;
+
+    # returns nothing (only deletes the record)
+  end
+
+  def update(album) # album object in argument(with updated fields)
+    # Executes the sql query:
+    # UPDATE albums SET title = $1, release_year = $2 artist_id = $3 WHERE id = $4;
+
+    # returns nothing (only updates the record)
+  end
+
 
 end
 ```
@@ -151,6 +172,22 @@ album = repo.find(2)
 album.title # => 'The Works`
 album.release_year # => '1984'
 album.artist_id # => '1'
+
+# 4
+# insert a new album
+repo = AlbumRepository.new
+
+new_album = Album.new
+new_album.title = 'A Night at the Opera'
+new_album.release_year = '1975'
+new_album.artist_id = '1'
+
+repo.create(new_album)
+
+all_albums = repo.all
+all_albums.length #=> 3
+all_albums.last.title #=> 'A Night at the Opera'
+
 ```
 
 Encode this example as a test.
