@@ -91,4 +91,17 @@ RSpec.describe AlbumRepository do
     expect(all_albums.length).to eq(0)
   end
 
+  it 'updates an album with new values' do
+    repo = AlbumRepository.new
+
+    album_to_update = repo.find(1)
+    album_to_update.title = 'updated name'
+    album_to_update.release_year = 2023
+
+    repo.update(album_to_update)
+    updated_album = repo.find(1)
+    expect(updated_album.title).to eq('updated name')
+    expect(updated_album.release_year).to eq(2023)
+  end
+
 end

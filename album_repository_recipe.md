@@ -113,7 +113,7 @@ class AlbumRepository
     # returns nothing (only creates the record)
   end
 
-   def delete(id)
+  def delete(id)
     # Executes the sql query:
     # DELETE FROM albums WHERE id = $1;
 
@@ -200,7 +200,7 @@ repo.find(id_to_delete)
 all_albums = repo.all
 all_albums.length #=> 1
 
-# 5
+# 6
 # deletes two existing album
 repo = AlbumRepository.new
 
@@ -209,6 +209,21 @@ repo.find(2)
 
 all_albums = repo.all
 all_albums.length #=> 0
+```
+
+```ruby
+# 7
+# updates an album with new values
+repo = AlbumRepository.new
+
+album_to_update= repo.find(1)
+album_to_update.title = 'updated name'
+album_to_update.release_year = 2023
+
+repo.update(new_album)
+updated_album = repo.find(1)
+updated_album.title #=> 'updated name'
+updated_album.release_year #=> 2023
 ```
 
 Encode this example as a test.
