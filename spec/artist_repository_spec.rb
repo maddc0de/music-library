@@ -12,6 +12,10 @@ RSpec.describe ArtistRepository do
     reset_artists_table
   end
   
+  after(:each) do
+    reset_artists_table
+  end
+
   it 'returns the list of artists' do
     repo = ArtistRepository.new
 

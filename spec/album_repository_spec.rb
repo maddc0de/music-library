@@ -7,8 +7,12 @@ RSpec.describe AlbumRepository do
     connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
     connection.exec(seed_sql)
   end
-  
+
   before(:each) do
+    reset_albums_table
+  end
+
+  after(:each) do
     reset_albums_table
   end
 
@@ -103,5 +107,7 @@ RSpec.describe AlbumRepository do
     expect(updated_album.title).to eq('updated name')
     expect(updated_album.release_year).to eq(2023)
   end
+
+
 
 end
